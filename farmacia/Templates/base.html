@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="{{STATIC_URL}}bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="{{STATIC_URL}}bootstrap/css/bootstrap-theme.min.css">
+	
+	<script src="{{STATIC_URL}}js/jquery.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="{{STATIC_URL}}css/style.css">
+	<title>{% block titulo %}
+		Farmacia
+	{% endblock titulo %}</title>
+</head>
+<body>
+<div class="navbar navbar-default navbar-fixed-top bg-indianred">
+      <div class="container">
+        <div class="navbar-header">
+          <a href="../" class="navbar-brand">Farmasis</a>
+          <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div class="navbar-collapse collapse" id="navbar-main">
+          <ul class="nav navbar-nav">
+            <li class="dropdown">
+              <a href="#" >Farmacias </a>
+            </li>
+            <li>
+              <a href="../help/">Ayuda</a>
+            </li>
+            <li>
+              <a href="http://news.bootswatch.com">Blog</a>
+            </li>
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="download">Download <span class="caret"></span></a>
+              <ul class="dropdown-menu" aria-labelledby="download">
+                <li><a href="./bootstrap.min.css">bootstrap.min.css</a></li>
+                <li><a href="./bootstrap.css">bootstrap.css</a></li>
+                <li class="divider"></li>
+                <li><a href="./variables.less">variables.less</a></li>
+                <li><a href="./bootswatch.less">bootswatch.less</a></li>
+              </ul>
+            </li>
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+                {% if user.is_authenticated %}
+                    <a href="{% url 'usuarios.views.salir' %}">Cerrar Sesión</a>
+                {% else %}
+                    <a href={% url 'usuarios.views.logget_in' %} >Iniciar Sesión</a>
+                {% endif %}
+                </li>
+            <li>
+            	<a href="{% url 'usuarios.views.new_user' %}">Registrate</a>
+        	</li>
+          </ul>
+
+        </div>
+      </div>
+    </div>
+<div class="container padding70">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="row">
+				<div class="col-md-3">
+					{% block menu %}
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus, modi, velit. Minus harum laboriosam numquam illum nostrum perferendis expedita beatae soluta culpa, aperiam debitis nisi ipsum molestiae blanditiis eligendi, quibusdam.</p>
+					{% endblock menu %}
+				</div>
+				<div class="col-md-9">
+                    {% if messages %}
+                        {% for message in messages %}
+                            <div class="row bd-black">
+                                <div class="col-md-12">
+                                    <p class="lead">{{ message|safe }}</p>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+					{% block cuerpo %}
+						
+					{% endblock cuerpo %}
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row bd-black">
+          <div class="col-md-12">
+
+           pie de pagina
+
+          </div>
+        </div>
+
+</div>
+
+
+<script src="{{STATIC_URL}}bootstrap/js/bootstrap.min.js"></script>	
+</body>
+</html>
