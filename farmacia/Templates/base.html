@@ -2,8 +2,10 @@
 <html lang="es">
 <head>
 	<meta charset="UTF-8">
-	<link rel="stylesheet" href="{{STATIC_URL}}bootstrap/css/bootstrap.min.css">
-	<link rel="stylesheet" href="{{STATIC_URL}}bootstrap/css/bootstrap-theme.min.css">
+	<!--link rel="stylesheet" href="{{STATIC_URL}}bootstrap/css/bootstrap.min.css"-->
+	<!--link rel="stylesheet" href="{{STATIC_URL}}bootstrap/css/bootstrap-theme.min.css"-->
+    <link rel="stylesheet" href="{{ STATIC_URL }}bootstrap/bootstrap.css"/>
+    <link rel="stylesheet" href="{{STATIC_URL}}bootstrap/bootswatch.min.css">
 	
 	<script src="{{STATIC_URL}}js/jquery.js"></script>
 
@@ -13,7 +15,7 @@
 	{% endblock titulo %}</title>
 </head>
 <body>
-<div class="navbar navbar-default navbar-fixed-top bg-indianred">
+<div class="navbar navbar-default navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
           <a href="../" class="navbar-brand">Farmasis</a>
@@ -26,7 +28,7 @@
         <div class="navbar-collapse collapse" id="navbar-main">
           <ul class="nav navbar-nav">
             <li class="dropdown">
-              <a href="#" >Farmacias </a>
+              <a href="{% url 'farmacias.views.medicamentos' %}" >Farmacias </a>
             </li>
             <li>
               <a href="../help/">Ayuda</a>
@@ -47,6 +49,9 @@
           </ul>
 
           <ul class="nav navbar-nav navbar-right">
+            <form class="navbar-form navbar-left">
+                <input type="text" class="form-control col-lg-8" placeholder="Buscar">
+            </form>
             <li>
                 {% if user.is_authenticated %}
                     <a href="{% url 'usuarios.views.salir' %}">Cerrar Sesión</a>
@@ -74,26 +79,32 @@
 				<div class="col-md-9">
                     {% if messages %}
                         {% for message in messages %}
-                            <div class="row bd-black">
-                                <div class="col-md-12">
-                                    <p class="lead">{{ message|safe }}</p>
-                                </div>
+                            {% if  message.tags == "error"%}
+                                <div class="alert alert-dismissable alert-danger">
+                            {% else %}
+                                <div class="alert alert-dismissable alert-{{ message.tags }}">
+                            {% endif %}
+                            <button type="button" class="close" data-dismiss="alert">×</button>
+                            <p>{{ message|safe }}</p>
                             </div>
                         {% endfor %}
                     {% endif %}
 					{% block cuerpo %}
-						
+						<div class="row">
+                            <div class="col-md-12">
+                                aqui esta el mapa
+                                <!--iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d7518.259255705922!2d-65.75842069262946!3d-19.578946410585257!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2sbo!4v1409799680407" width="800" height="600" frameborder="0" style="border:0"></iframe-->
+                            </div>
+						</div>
 					{% endblock cuerpo %}
 				</div>
 			</div>
 		</div>
 	</div>
 
-	<div class="row bd-black">
+	<div class="row">
           <div class="col-md-12">
-
-           pie de pagina
-
+            &copy; Por <a class="fg-color-black" href="mailto:rafa_rolando@hotmail.com">Rafael R. Tapia B.</a>
           </div>
         </div>
 

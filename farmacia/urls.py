@@ -19,4 +19,6 @@ urlpatterns = patterns('',
     url(r'^login/$', 'usuarios.views.logget_in'),
     url(r'^usuario/perfil/$', 'usuarios.views.perfil'),
     url(r'^logout/$', 'usuarios.views.salir'),
+    url(r'^medicamentos/&', 'farmacias.views.medicamentos'),
+    url(r'^form/&','farmacias.views.formulario'),
 )
