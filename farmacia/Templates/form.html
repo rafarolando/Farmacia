@@ -6,7 +6,11 @@
 
 {% block cuerpo %}
 	<form action="" method="post" class="form-horizontal" role="form">{% csrf_token %}
-        {% block cuerpoform%}
+        <fieldset>
+            <legend>{% block legend %}
+            
+            {% endblock %}</legend>
+            {% block cuerpoform%}
 		    {% for campo in formulario %}
 			    {{campo.errors}}
 			        <div class="form-group">
@@ -22,9 +26,16 @@
 			        </div>
             {% endfor %}
         {% endblock %}
-		<button type="submit" class="btn btn-primary">{% block submit %}
+        <div class="form-group">
+      <div class="col-lg-10 col-lg-offset-2">
+         <button type="submit" class="btn btn-primary">{% block submit %}
 		Guardar{% endblock %}</button>
 		<a href="{% block cancelar %}/{% endblock %}" class="btn btn-danger">Cancelar</a>
+      </div>
+    </div>
+
+        </fieldset>
+
 	</form>
 	<script type="text/javascript">
 		$(document).ready(function(event) {

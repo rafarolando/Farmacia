@@ -28,22 +28,26 @@
         <div class="navbar-collapse collapse" id="navbar-main">
           <ul class="nav navbar-nav">
             <li class="dropdown">
-              <a href="{% url 'farmacias.views.medicamentos' %}" >Farmacias </a>
+              <a href="" >Farmacias </a>
             </li>
             <li>
-              <a href="../help/">Ayuda</a>
+              <a href="{% url 'categorias.views.index_categoria' %}">Tipos</a>
             </li>
             <li>
               <a href="http://news.bootswatch.com">Blog</a>
             </li>
             <li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="download">Download <span class="caret"></span></a>
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="download">Medicamentos <span class="caret"></span></a>
               <ul class="dropdown-menu" aria-labelledby="download">
-                <li><a href="./bootstrap.min.css">bootstrap.min.css</a></li>
-                <li><a href="./bootstrap.css">bootstrap.css</a></li>
-                <li class="divider"></li>
-                <li><a href="./variables.less">variables.less</a></li>
-                <li><a href="./bootswatch.less">bootswatch.less</a></li>
+                <li>
+                <a href="{% url 'medicamentos.views.index_proveedor' %}">Proveedores</a>
+                </li>
+                <li>
+                <a href="{% url 'medicamentos.views.index_unidad' %}">Unidades de Medida</a>
+                </li>
+                <li>
+                <a href="{% url 'medicamentos.views.index_compuesto' %}">Compuestos</a>
+                </li>
               </ul>
             </li>
           </ul>
@@ -103,8 +107,8 @@
 	</div>
 
 	<div class="row">
-          <div class="col-md-12">
-            &copy; Por <a class="fg-color-black" href="mailto:rafa_rolando@hotmail.com">Rafael R. Tapia B.</a>
+          <div class="col-md-12 text-center">
+            &copy; Por <a class="fg-color-black " href="mailto:rafa_rolando@hotmail.com">Rafael R. Tapia B.</a>
           </div>
         </div>
 

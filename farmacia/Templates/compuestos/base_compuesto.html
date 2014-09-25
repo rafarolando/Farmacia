@@ -1,0 +1,31 @@
+{%  extends 'base.html' %}
+
+{% block title %}
+Compuestos
+{% endblock %}
+{% block menu %}
+    {% include 'compuestos/menu.html' %}
+{% endblock %}
+{% block cuerpo %}
+    <div class="row">
+        <h2>Compuestos</h2>
+        <div class="col-md-12">
+            <table class="">
+                <thead>
+                    <tr>
+                        <th width="20px">#</th>
+                        <th class="text-center">Compuesto</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for compuesto in compuestos %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ compuesto.nombre }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

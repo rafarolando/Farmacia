@@ -135,6 +135,8 @@ INSTALLED_APPS = (
     'django.contrib.admindocs',
     'usuarios',
     'farmacias',
+    'medicamentos',
+    'categorias',
     'south',
 )
 
@@ -166,4 +168,3 @@ LOGGING = {
         },
     }
 }
-

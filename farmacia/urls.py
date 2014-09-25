@@ -11,7 +11,7 @@ urlpatterns = patterns('',
 
     url(r'^admin/', include(admin.site.urls)),
 
-    url(r'^rafael/$', 'usuarios.views.home'),
+    #url(r'^rafael/$', 'usuarios.views.home'),
     url(r'^$', 'usuarios.views.base'),
 
     #USUARIOS
@@ -19,6 +19,20 @@ urlpatterns = patterns('',
     url(r'^login/$', 'usuarios.views.logget_in'),
     url(r'^usuario/perfil/$', 'usuarios.views.perfil'),
     url(r'^logout/$', 'usuarios.views.salir'),
-    url(r'^medicamentos/&', 'farmacias.views.medicamentos'),
-    url(r'^form/&','farmacias.views.formulario'),
+
+    #FARMACIA
+    #url(r'^medicamentos/&', 'farmacias.views.medicamentos'),
+    #url(r'^form/&','farmacias.views.formulario'),
+
+    #CATEGORIAS
+    url(r'^tipos/$','categorias.views.index_categoria'),
+    url(r'^tipos/nuevo/$','categorias.views.nueva_categoria'),
+
+    #MEDICAMENTOS
+    url(r'^proveedores/$','medicamentos.views.index_proveedor'),
+    url(r'^proveedores/nuevo/$','medicamentos.views.nuevo_proveedor'),
+    url(r'^unidad/$','medicamentos.views.index_unidad'),
+    url(r'^unidades/nuevo/$','medicamentos.views.nueva_unidad'),
+    url(r'^compuestos/$','medicamentos.views.index_compuesto'),
+    url(r'^compuestos/nuevo/$','medicamentos.views.nuevo_compuesto'),
 )

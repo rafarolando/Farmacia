@@ -1,0 +1,31 @@
+{%  extends 'base.html' %}
+
+{% block title %}
+Tipos
+{% endblock %}
+{% block menu %}
+    {% include 'categorias/menu.html' %}
+{% endblock %}
+{% block cuerpo %}
+    <div class="row">
+        <h2>Tipos</h2>
+        <div class="col-md-12">
+            <table class="">
+                <thead>
+                    <tr>
+                        <th width="20px">#</th>
+                        <th class="text-center">Tipo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for categoria in categorias %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ categoria.tipo }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

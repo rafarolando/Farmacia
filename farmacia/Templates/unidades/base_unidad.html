@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block titulo %}
+Unidades
+{% endblock %}
+
+{% block menu %}
+    {% include 'unidades/menu.html' %}
+{% endblock %}
+{% block cuerpo %}
+    <div class="row">
+        <h2>Unidades de Medida</h2>
+        <div class="col-md-12">
+            <table class="table table-hover table-striped table-bordered table-responsive">
+                <thead>
+                    <tr>
+                        <th width="20px">#</th>
+                        <th class="text-center">Unidad de Medida</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for unidad in unidades %}
+                        <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ unidad.nombre }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

@@ -33,43 +33,12 @@ class Farmacia(models.Model):
     #OneToOneField() ManyToManyField()
     #text integer float decimal char date time datetime email url
 
-class Pais(models.Model):
-    nombre = models.CharField(max_length='50')
-    farmacia = models.OneToOneField(Farmacia)
-    def __unicode__(self):
-        return self.farmacia.nombre
-    class Meta:
-        ordering = ['-nombre']
-        verbose_name_plural = 'Paises'
+#class Pais(models.Model):
+#    nombre = models.CharField(max_length='50')
+#    farmacia = models.OneToOneField(Farmacia)
+#    def __unicode__(self):
+#        return self.farmacia.nombre
+#    class Meta:
+#        ordering = ['-nombre']
+#        verbose_name_plural = 'Paises'
 
-class Medicamentos(models.Model):
-    nombre = models.CharField(max_length='100', verbose_name='Nombre del Medicamento')
-    industria = models.CharField(max_length='50')
-    stock = models.IntegerField()
-    estado = models.BooleanField()
-    farmacia = models.ManyToManyField(Farmacia)
-    def __unicode__(self):
-        return self.nombre
-    class Meta:
-        ordering = ['-nombre']
-        verbose_name_plural = 'Medicamentos'
-
-class Turno(models.Model):
-    fecha = models.DateField()
-    farmacia = models.ForeignKey(Farmacia, null=True, blank=True)
-    def __unicode__(self):
-        return self.farmacia.nombre
-    class Meta:
-        ordering = ['-fecha']
-        verbose_name_plural = 'Turnos'
-
-class Compuesto(models.Model):
-    nombre = models.CharField(max_length='100', verbose_name='Compuesto principal')
-    cantidad = models.CharField(max_length='100', verbose_name='Dosis')
-    tipo = models.CharField(max_length='100')
-    medicamento = models.OneToOneField(Medicamentos)
-    def __unicode__(self):
-        return self.nombre
-    class Meta:
-        ordering = ['-nombre']
-        verbose_name_plural = 'Compuesto Principal'

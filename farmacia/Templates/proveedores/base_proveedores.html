@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block titulo %}
+Proveedores
+{% endblock %}
+
+{% block menu %}
+    {% include 'proveedores/menu.html' %}
+{% endblock %}
+{% block cuerpo %}
+    <div class="row">
+        <h2>Proveedores</h2>
+        <div class="col-md-12">
+            <table class="table table-hover table-striped table-bordered table-responsive">
+                <thead>
+                    <tr>
+                        <th width="20px">#</th>
+                        <th class="text-center">Proveedor</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for proveedor in proveedores %}
+                        <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ proveedor.nombre }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}
