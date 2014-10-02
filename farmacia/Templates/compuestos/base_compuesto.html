@@ -10,7 +10,7 @@ Compuestos
     <div class="row">
         <h2>Compuestos</h2>
         <div class="col-md-12">
-            <table class="">
+            <table class="table table-hover table-striped table-bordered table-responsive">
                 <thead>
                     <tr>
                         <th width="20px">#</th>
@@ -22,6 +22,7 @@ Compuestos
                     <tr>
                         <td>{{ forloop.counter }}</td>
                         <td>{{ compuesto.nombre }}</td>
+                        <td><a href="{% url 'medicamentos.views.modificar_compuesto' compuesto.id %}">Modificar</a></td>
                     </tr>
                     {% endfor %}
                 </tbody>

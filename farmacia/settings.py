@@ -136,7 +136,6 @@ INSTALLED_APPS = (
     'usuarios',
     'farmacias',
     'medicamentos',
-    'categorias',
     'south',
 )
 

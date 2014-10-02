@@ -23,6 +23,7 @@ Unidades
                         <tr>
                         <td>{{ forloop.counter }}</td>
                         <td>{{ unidad.nombre }}</td>
+                        <td><a href="{% url 'medicamentos.views.modificar_unidad' unidad.id %}">Modificar</a></td>
                         </tr>
                     {% endfor %}
                 </tbody>

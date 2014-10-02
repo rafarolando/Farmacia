@@ -2,7 +2,7 @@ __author__ = 'Rafael'
 
 from django.forms import ModelForm
 
-from medicamentos.models import Proveedores, Unidades, Compuestos
+from medicamentos.models import Proveedores, Unidades, Compuestos, Medicamentos
 
 class ProveedorForm(ModelForm):
     class Meta:
@@ -15,3 +15,7 @@ class UnidadesForm(ModelForm):
 class CompuestoForm(ModelForm):
     class Meta:
         model = Compuestos
+
+class MedicamentoForm(ModelForm):
+    class Meta:
+        model = Medicamentos

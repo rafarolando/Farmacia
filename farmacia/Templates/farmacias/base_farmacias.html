@@ -4,13 +4,30 @@
     Farmacia
 {% endblock %}
 {% block menu %}
-    <div class="list-group">
-        <a href={% url 'farmacias.views.formulario' %} class="list-group-item active">
-        Medicamentos
-        </a>
-        <a href={% url 'farmacias.views.turno' %} class="list-group-item">Turnos
-        </a>
-        <a href="#" class="list-group-item">Morbi leo risus
-        </a>
+    {% include 'farmacias/menu.html' %}
+{% endblock %}
+
+{% block cuerpo %}
+    <div class="row">
+        <h2>Farmacias</h2>
+        <div class="col-md-12">
+            <table class="table table-hover table-striped table-bordered table-responsive">
+                <thead>
+                    <tr>
+                        <th width="20px">#</th>
+                        <th class="text-center">Farmacia</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for farmacia in farmacias %}
+                        <tr>
+                            <td>{{ forloop.counter }}</td>
+                            <td>{{ farmacia.nombre }}</td>
+                            <td><a href="{% url 'farmacias.views.modificar_farmacia' farmacia.id %}">Modificar</a></td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
     </div>
 {% endblock %}

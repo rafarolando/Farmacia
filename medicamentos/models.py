@@ -53,3 +53,20 @@ class Compuestos (models.Model):
             ('detail_compuestos', 'Detalle de Compuesto'),
             ('report_compuestos', 'Reporte de Compuesto'),
         )
+
+
+class Medicamentos (models.Model):
+    nombre = models.CharField(max_length='50', verbose_name='Nombre del Medicamento')
+    proveedor = models.OneToOneField(Proveedores)
+    compuesto = models.ForeignKey(Compuestos)
+
+    def __unicode__(self):
+        return  self.nombre
+
+    class Meta:
+        ordering = ["nombre"]
+        verbose_name_plural = 'Nombres'
+        permissions = (
+            ('detail_medicamentos', 'Detalle del Medicamento'),
+            ('report_medicamentos', 'Reporte del Medicamento'),
+        )
