@@ -141,8 +141,9 @@ def modificar_turno (request, pk):
 
 
 def Buscar (request):
-    query = request.get('q')
+    query = request.GET('q')
     tipo = Categoria.objects.filter(tipo__icontains = query)
     return render(request, "categorias/buscar.html",{
         'query':query,
+        'tipo':tipo,
     })

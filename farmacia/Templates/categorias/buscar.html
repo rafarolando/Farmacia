@@ -5,6 +5,12 @@ Busqueda
 
 {% block cuerpo %}
   <div class="row">
+        <form action="" method="get">{% csrf_token %}
+            <label for="q">Tipo</label>
+            <input name="q" type="text" value={{ query }}>
+
+            <input type="submit" value="Buscar">
+        </form>
         <h2>Tipos</h2>
         <div class="col-md-12">
             <table class="table table-hover table-striped table-bordered table-responsive">
